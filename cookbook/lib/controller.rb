@@ -2,13 +2,17 @@ require_relative
 
 class Controller
 
-def intialize (attributes{})
+  def intialize (attributes{})
 
-end
+  end
 
-def all
-end
+  def list
+  end
 
+  def create
+  end
 
+  def destroy
+  end
 
 end
