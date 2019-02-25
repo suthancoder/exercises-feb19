@@ -1,5 +1,4 @@
-class Repository
-
+class Cookbook
 
   def initialize(csv_file)
     @csv_file = csv_file
@@ -8,11 +7,16 @@ class Repository
   def all
   end
 
-  def add_recipe(recipe)
+  def add(recipe)
   end
 
-  def remove_recipe(recipe)
+  def remove(recipe)
   end
+
+  def load_csv
+
+  end
+
 
 
 end

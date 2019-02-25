@@ -1,6 +1,6 @@
 class Recipe
 
-  def initialize(attributes{})
+  def initialize(attributes = {})
     @name = attributes[:name]
     @description = attributes[:description]
     @prep_time = attributes[:prep_time]
