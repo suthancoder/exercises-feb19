@@ -1,18 +1,14 @@
 class View
-
-  def initialize(attributes{})
-    @view = view
-    @counter = 0
-  end
-
   def display(array)
-    array.each do |cookbook|
-      counter += 1
-      puts "#{counter} #{recipe.name} #{recipe.description}"
+    puts array
+    array.each_with_index do |recipe, index|
+      puts "#{index} #{recipe.name} #{recipe.description}"
     end
   end
 
-  def add_recipe
+  def ask_user_for(item)
+    puts "Please provide the #{item}"
+    return gets.chomp
   end
 
   def delete_recipe

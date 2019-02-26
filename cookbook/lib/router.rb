@@ -16,13 +16,14 @@ class Router
       case
         when @response == 1
           @controller.list
-
+          %x(say "Calling list function")
         when @response == 2
           puts "call add function"
+          @controller.add
         when @response == 3
-          puts "call update function"
+          @controller.update
         when @response == 4
-          puts "call delete function"
+          @controller.destroy
       end
     end
 
