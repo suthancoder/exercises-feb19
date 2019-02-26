@@ -10,7 +10,6 @@ class Cookbook
   end
 
   def all
-    puts "cookbook all function"
     return @recipes
   end
 
@@ -18,6 +17,12 @@ class Cookbook
     @recipes << recipe
     save_csv
   end
+
+  def update(index, recipe)
+    @recipes.insert(index, recipe)
+    save_csv
+  end
+
 
   def remove(choice)
     @recipes.delete_at(choice)

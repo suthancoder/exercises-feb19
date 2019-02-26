@@ -13,10 +13,7 @@ class Controller
   end
 
   def add
-    name = @view.ask_user_for("name")
-    description = @view.ask_user_for("descrption")
-    prep_time = @view.ask_user_for("preparation time")
-    recipe = Recipe.new(name: name, description: description, prep_time: prep_time)
+    recipe = user_recipe
     @cookbook.add(recipe)
   end
 
@@ -24,12 +21,9 @@ class Controller
   def update
     display_all
     choice = @view.ask_user_for("number of item to be updated")
-    recipe = @cookbook.all[choice.to_i]
-    name = @view.ask_user_for("name")
-    recipe.name = name
-    recipe.description = @view.ask_user_for("descrption")
-    recipe.prep_time = @view.ask_user_for("preparation time")
-    @cookbook.add(recipe)
+    @cookbook.remove(choice.to_i)
+    recipe = user_recipe
+    @cookbook.update(choice.to_i, recipe)
   end
 
   def destroy
@@ -44,5 +38,14 @@ class Controller
   def display_all
     recipes = @cookbook.all
     @view.display(recipes)
+  end
+
+  def user_recipe
+    recipe_array = []
+    recipe_array[0] = @view.ask_user_for("name")
+    recipe_array[1] = @view.ask_user_for("descrption")
+    recipe_array[2] = @view.ask_user_for("preparation time")
+    new_recipe = Recipe.new(name: recipe_array[0], description: recipe_array[1], prep_time: recipe_array[2])
+    return new_recipe
   end
 end

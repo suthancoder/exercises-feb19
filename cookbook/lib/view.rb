@@ -1,6 +1,5 @@
 class View
   def display(array)
-    puts array
     array.each_with_index do |recipe, index|
       puts "#{index} #{recipe.name} #{recipe.description}"
     end
