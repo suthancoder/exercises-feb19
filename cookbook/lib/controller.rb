@@ -1,5 +1,6 @@
 require_relative 'recipe'
 require_relative 'view'
+require_relative 'scrape.rb'
 
 class Controller
 
@@ -31,6 +32,18 @@ class Controller
     choice = @view.ask_user_for("number of item to be deleted")
     @cookbook.remove(choice.to_i)
     display_all
+  end
+
+  def import
+    ingredient = @view.ask_user_for("ingredient you wish to search for")
+    puts "Searching Let's Cook for #{ingredient} related recipes"
+    ingredient_search = LetsCook.new(ingredient: ingredient)
+    titles_list = ingredient_search.get_titles
+    @view.import_display(titles_list)
+    choice = @view.ask_user_for("number for your choice")
+    puts "Importing recipe for #{titles_list[choice.to_i]}"
+    recipe = ingredient_search.import_recipe(choice.to_i)
+    @cookbook.add(recipe)
   end
 
 

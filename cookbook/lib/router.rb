@@ -10,7 +10,7 @@ class Router
   end
 
   def run
-    while @response != 5 do
+    while @response != 6 do
       base_menu
       @response = gets.chomp.to_i
       case
@@ -24,6 +24,8 @@ class Router
           @controller.update
         when @response == 4
           @controller.destroy
+        when @response == 5
+          @controller.import
       end
     end
 
@@ -37,7 +39,8 @@ class Router
     puts "2 - Add a new recipe"
     puts "3 - Update and existing recipe"
     puts "4 - Delete a recipe"
-    puts "5 - exit press (5)"
+    puts "5 - Import recipes from Let's Cook"
+    puts "6 - exit press (6)"
   end
 
 

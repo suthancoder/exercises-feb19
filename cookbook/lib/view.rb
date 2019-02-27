@@ -10,12 +10,12 @@ class View
     return gets.chomp
   end
 
-  def delete_recipe
+  def import_display(array)
+    array.each_with_index do |recipe, index|
+      puts "#{index} #{recipe}"
+    end
   end
 
   def edit_recipe
   end
-
-
-
 end
